@@ -9,6 +9,7 @@ tags:
   - Banana Pi
   - BPI-R4
 type: blog
+draft: true
 ---
 
 ## Introduction
