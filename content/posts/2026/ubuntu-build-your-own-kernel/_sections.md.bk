@@ -1,0 +1,17 @@
+## Apply the patches
+
+Replace `bana-io` with your username or change it to use HTTPS instead:
+
+```sh
+git clone git+ssh://bana-io@git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/resolute
+cd resolute
+BRANCH_NAME=$(PAGER=cat git tag -l Ubuntu-\* | grep -i $(uname -r | sed 's/-generic//'))
+git checkout -b "${BRANCH_NAME}" "${BRANCH_NAME}"
+```
+
+It should checkout something like `Ubuntu-7.0.0-38.38`. Now apply the patch which I have generated against <https://github.com/aknautiyal/tip/tree/hdmi21_dev>:
+
+```sh
+wget 'https://blog.bana.io/ubuntu-build-your-own-kernel/files/hdmi21_dev.patch'
+patch -p1 < ./hdmi21_dev.patch
+```
